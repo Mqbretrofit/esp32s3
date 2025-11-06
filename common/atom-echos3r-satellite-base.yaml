@@ -91,17 +91,17 @@ binary_sensor:
 
 # I2C Bus Configuration
 i2c:
-  sda: GPIO45
-  scl: GPIO0
+  sda: GPIO38
+  scl: GPIO39
   scan: false
   id: i2c0
 
 # I2S Bus Configuration
 i2s_audio:
   - id: i2s_audio_bus
-    i2s_lrclk_pin: GPIO3
-    i2s_bclk_pin: GPIO17
-    i2s_mclk_pin: GPIO11
+    i2s_lrclk_pin: GPIO33
+    i2s_bclk_pin: GPIO19
+
 
 audio_dac:
   - platform: es8311
@@ -113,14 +113,14 @@ microphone:
   - platform: i2s_audio
     id: i2s_mic
     sample_rate: 16000
-    i2s_din_pin: GPIO4
+    i2s_din_pin: GPIO9
     bits_per_sample: 16bit
     adc_type: external
 
 speaker:
   - platform: i2s_audio
     id: i2s_speaker
-    i2s_dout_pin: GPIO48
+    i2s_dout_pin: GPIO10
     dac_type: external
     sample_rate: 48000
     bits_per_sample: 16bit
@@ -355,7 +355,7 @@ script:
 switch:
   - platform: gpio
     name: Speaker Enable
-    pin: GPIO18
+    pin: GPIO46
     restore_mode: RESTORE_DEFAULT_ON
     entity_category: config
     disabled_by_default: true
