@@ -37,11 +37,12 @@ esphome:
       - delay: 2s        
 
 esp32:
-  board: esp32-s3-devkitc1-n8r8
+  board: esp32-s3-devkitc-1
   flash_size: 8MB
   cpu_frequency: 240MHz
   framework:
     type: esp-idf
+    version: recommended
     ## Note: Disable these configurations if you face the boot loop issue.
     sdkconfig_options:
         CONFIG_ESP32S3_DATA_CACHE_64KB: "y"
