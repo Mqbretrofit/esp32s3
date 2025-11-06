@@ -32,7 +32,9 @@ esphome:
             lambda: return id(init_in_progress);
           then:
             - lambda: id(init_in_progress) = false;
-            
+      - delay: 2s
+      - switch.turn_on: spk_en
+      - delay: 2s        
 
 esp32:
   board: esp32s3box
@@ -59,8 +61,8 @@ esp32:
         CONFIG_MBEDTLS_SSL_PROTO_TLS1_3: "y"  # TLS1.3 support isn't enabled by default in IDF 5.1.5
 
 psram:
-  mode: octal
-  speed: 80MHz
+  mode: quad
+  speed: 40MHz
 
 logger:
   level: DEBUG
@@ -183,6 +185,7 @@ media_player:
             - script.execute: set_idle_or_mute_phase
 
 micro_wake_word:
+  enabled: false
   id: mww
   microphone: i2s_mic
   stop_after_detection: false
@@ -208,6 +211,7 @@ micro_wake_word:
         wake_word: !lambda return wake_word;
 
 voice_assistant:
+  enabled: false
   id: va
   microphone: i2s_mic
   media_player: speaker_media_player
