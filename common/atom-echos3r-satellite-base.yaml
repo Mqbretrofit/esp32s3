@@ -99,8 +99,8 @@ i2c:
 # I2S Bus Configuration
 i2s_audio:
   - id: i2s_audio_bus
-    i2s_lrclk_pin: GPIO17
-    i2s_bclk_pin: GPIO19
+    i2s_lrclk_pin: GPIO19
+    i2s_bclk_pin: GPIO33
 
 
 audio_dac:
@@ -116,14 +116,14 @@ microphone:
   - platform: i2s_audio
     id: i2s_mic
     sample_rate: 16000
-    i2s_din_pin: GPIO9
+    i2s_din_pin: GPI22
     bits_per_sample: 16bit
     adc_type: external
 
 speaker:
   - platform: i2s_audio
     id: i2s_speaker
-    i2s_dout_pin: GPIO10
+    i2s_dout_pin: GPIO23
     dac_type: external
     sample_rate: 48000
     bits_per_sample: 16bit
