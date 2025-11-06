@@ -116,7 +116,7 @@ microphone:
   - platform: i2s_audio
     id: i2s_mic
     sample_rate: 16000
-    i2s_din_pin: GPI22
+    i2s_din_pin: GPIO22
     bits_per_sample: 16bit
     adc_type: external
 
