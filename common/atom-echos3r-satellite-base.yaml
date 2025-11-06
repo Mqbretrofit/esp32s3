@@ -100,38 +100,27 @@ i2c:
 
 # I2S Bus Configuration
 i2s_audio:
-  - id: i2s_audio_bus
+  - id: i2s_bus
     i2s_lrclk_pin: GPIO19
-    i2s_bclk_pin: GPIO17
-
-
-audio_dac:
-  - platform: es8311
-    id: es8311_dac
-    bits_per_sample: 16bit
-    sample_rate: 24000
-    use_mclk: true
-    use_microphone: true
-
+    i2s_bclk_pin: GPIO33
 
 microphone:
   - platform: i2s_audio
     id: i2s_mic
+    i2s_din_pin: GPIO23
     sample_rate: 16000
-    i2s_din_pin: GPIO22
     bits_per_sample: 16bit
     adc_type: external
 
 speaker:
   - platform: i2s_audio
-    id: i2s_speaker
-    i2s_dout_pin: GPIO23
+    id: i2s_spk
+    i2s_dout_pin: GPIO22
     dac_type: external
-    sample_rate: 24000
+    sample_rate: 48000
     bits_per_sample: 16bit
-    channel: left
     audio_dac: es8311_dac
-    buffer_duration: 100ms
+
 
 media_player:
   - platform: speaker
@@ -362,7 +351,7 @@ script:
 switch:
   - platform: gpio
     name: Speaker Enable
-    pin: GPIO46
+    pin: GPIO45
     restore_mode: RESTORE_DEFAULT_ON
     entity_category: config
     disabled_by_default: true
