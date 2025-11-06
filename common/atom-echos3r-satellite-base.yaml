@@ -99,7 +99,7 @@ i2c:
 # I2S Bus Configuration
 i2s_audio:
   - id: i2s_audio_bus
-    i2s_lrclk_pin: GPIO33
+    i2s_lrclk_pin: GPIO17
     i2s_bclk_pin: GPIO19
 
 
@@ -108,6 +108,9 @@ audio_dac:
     id: es8311_dac
     bits_per_sample: 16bit
     sample_rate: 48000
+    use_mclk: true
+    use_microphone: true
+
 
 microphone:
   - platform: i2s_audio
