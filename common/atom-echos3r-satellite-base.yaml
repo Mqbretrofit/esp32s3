@@ -93,21 +93,21 @@ binary_sensor:
 i2c:
   sda: GPIO38
   scl: GPIO39
-  scan: false
+  scan: true
   id: i2c0
 
 # I2S Bus Configuration
 i2s_audio:
   - id: i2s_audio_bus
     i2s_lrclk_pin: GPIO19
-    i2s_bclk_pin: GPIO33
+    i2s_bclk_pin: GPIO17
 
 
 audio_dac:
   - platform: es8311
     id: es8311_dac
     bits_per_sample: 16bit
-    sample_rate: 48000
+    sample_rate: 24000
     use_mclk: true
     use_microphone: true
 
@@ -125,7 +125,7 @@ speaker:
     id: i2s_speaker
     i2s_dout_pin: GPIO23
     dac_type: external
-    sample_rate: 48000
+    sample_rate: 24000
     bits_per_sample: 16bit
     channel: left
     audio_dac: es8311_dac
@@ -140,7 +140,7 @@ media_player:
     announcement_pipeline:
       speaker: i2s_speaker
       format: FLAC
-      sample_rate: 48000
+      sample_rate: 24000
       num_channels: 1  # Atom Echo S3R only has one output channel
     files:
       - id: wake_word_triggered_sound
