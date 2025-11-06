@@ -37,7 +37,7 @@ esphome:
       - delay: 2s        
 
 esp32:
-  board: esp32s3box
+  board: esp32-s3-devkitc1-n8r8
   flash_size: 8MB
   cpu_frequency: 240MHz
   framework:
